@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- ================= SIDEBAR ================= -->
+      <!-- <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <span>My Todo</span>
+        </div>
+
+        <nav class="navigation">
+          <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Today</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i class="fa-solid fa-list"></i>
+            <span>All Tasks</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i class="fa-regular fa-circle"></i>
+            <span>Active</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>Completed</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i class="fa-regular fa-star"></i>
+            <span>Important</span>
+          </a>
+
+          <a href="#" class="nav-item">
+            <i class="fa-regular fa-calendar"></i>
+            <span>Calendar</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="#" class="nav-item">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+
+          <div class="theme">
+            <div>
+              <i class="fa-regular fa-moon"></i>
+              <span>Theme</span>
+            </div>
+
+            <div class="toggle">
+              <div class="toggle-circle"></div>
+            </div>
+          </div>
+        </div>
+
+         <div class="motivation">
+          <div class="plant">🌱</div>
+          <p>Stay focused and<br />get things done!</p>
+          <i class="fa-solid fa-heart"></i>
+        </div> 
+      </aside> -->
+
+      <!-- ================= MAIN ================= -->
+      <main class="main">
+        <!-- Header -->
+        <header class="header">
+          <div>
+            <h1 id="greating"></h1>
+            <p>Here's what's happening with your tasks today.</p>
+          </div>
+
+          <div class="header-right">
+            <span class="date"></span>
+
+            <button class="dark-mode">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+        </header>
+
+        <!-- ================= STATISTICS ================= -->
+        <section class="stats">
+          <div class="stat-card total">
+            <div class="stat-top">
+              <div class="stat-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#f8f1f1"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M88,96a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,96Zm8,40h64a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16Zm32,16H96a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16ZM224,48V156.69A15.86,15.86,0,0,1,219.31,168L168,219.31A15.86,15.86,0,0,1,156.69,224H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM48,208H152V160a8,8,0,0,1,8-8h48V48H48Zm120-40v28.7L196.69,168Z"
+                  ></path>
+                </svg>
+              </div>
+
+              <div>
+                <span>Total Tasks</span>
+                <strong id="totalTask"></strong>
+              </div>
+            </div>
+
+            <p>All tasks in your list</p>
+          </div>
+
+          <div class="stat-card completed">
+            <div class="stat-top">
+              <div class="stat-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#f8f1f1"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"
+                  ></path>
+                </svg>
+              </div>
+
+              <div>
+                <span>Completed</span>
+                <strong id="completedTask"></strong>
+              </div>
+            </div>
+
+            <p>Great job!</p>
+          </div>
+
+          <div class="stat-card pending">
+            <div class="stat-top">
+              <div class="stat-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#f8f1f1"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M200,75.64V40a16,16,0,0,0-16-16H72A16,16,0,0,0,56,40V76a16.07,16.07,0,0,0,6.4,12.8L114.67,128,62.4,167.2A16.07,16.07,0,0,0,56,180v36a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V180.36a16.09,16.09,0,0,0-6.35-12.77L141.27,128l52.38-39.6A16.05,16.05,0,0,0,200,75.64ZM72,40H184V75.64L178.23,80H77.33L72,76Zm56,78L98.67,96h58.4Zm56,98H72V180l48-36v24a8,8,0,0,0,16,0V144.08l48,36.28Z"
+                  ></path>
+                </svg>
+              </div>
+
+              <div>
+                <span>Pending</span>
+                <strong id="pandingTask"></strong>
+              </div>
+            </div>
+
+            <p>Keep going!</p>
+          </div>
+        </section>
+
+        <!-- ================= ADD TASK ================= -->
+        <section class="add-task">
+          <!-- Part 1: Task -->
+          <div class="task-input">
+            <i class="fa-solid fa-plus"></i>
+
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="What needs to be done?"
+              required
+            />
+          </div>
+
+          <!-- Part 2: Date -->
+          <div class="date-input">
+            <i class="fa-regular fa-calendar"></i>
+
+            <input type="date" id="taskDate" required />
+          </div>
+
+          <!-- Part 3: Add Button -->
+          <button id="addTask" class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+            Add Task
+          </button>
+        </section>
+
+        <!-- ================= FILTER ================= -->
+        <section class="task-header">
+          <div class="filters">
+            <button class="filter active">All</button>
+
+            <button class="filter">Active</button>
+
+            <button class="filter">Completed</button>
+
+            <button class="filter">Important</button>
+          </div>
+
+          <button class="sort">
+            Sort by
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </section>
+
+        <!-- ================= TASKS ================= -->
+        <section class="tasks">
+          <!-- Task 1 -->
+          <!-- <article class="task completed-task">
+            <input type="checkbox" id="checkbox" />
+
+            <div class="task-content">
+              <h3>Finish JavaScript practice</h3>
+
+              <div class="task-info">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="17"
+                  fill="#000000"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z"
+                  ></path>
+                </svg>
+                <span> Today </span>
+
+                 <span class="priority high"> High </span> 
+              </div>
+            </div>
+
+            <button class="delete">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="#c70a0a"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"
+                ></path>
+              </svg>
+            </button>
+
+            <button class="more">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </article>
+
+          Task 2
+          <article class="task">
+            <button class="checkbox"></button>
+
+            <div class="task-content">
+              <h3>Build Todo List UI</h3>
+
+              <div class="task-info">
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  Tomorrow
+                </span>
+
+                <span class="priority medium"> Medium </span>
+              </div>
+            </div>
+
+            <button class="delete">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+
+            <button class="more">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </article>
+
+          Task 3
+          <article class="task">
+            <button class="checkbox"></button>
+
+            <div class="task-content">
+              <h3>Learn DOM manipulation</h3>
+
+              <div class="task-info">
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  August 30, 2026
+                </span>
+
+                <span class="priority low"> Low </span>
+              </div>
+            </div>
+
+            <button class="delete">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+
+            <button class="more">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </article>
+
+          Task 4
+          <article class="task">
+            <button class="checkbox"></button>
+
+            <div class="task-content">
+              <h3>Read 20 pages of a book</h3>
+
+              <div class="task-info">
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  August 29, 2026
+                </span>
+
+                <span class="priority low"> Low </span>
+              </div>
+            </div>
+
+            <button class="delete">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+
+            <button class="more">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </article>
+
+          Task 5
+          <article class="task completed-task">
+            <button class="checkbox checked">
+              <i class="fa-solid fa-check"></i>
+            </button>
+
+            <div class="task-content">
+              <h3>Workout for 30 minutes</h3>
+
+              <div class="task-info">
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  August 26, 2026
+                </span>
+
+                <span class="priority medium"> Medium </span>
+              </div>
+            </div>
+
+            <button class="delete">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+
+            <button class="more">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </article> -->
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
