@@ -93,6 +93,7 @@ addTask.addEventListener("click", () => {
   localStorage.setItem("todo", JSON.stringify(todo)); // store in localStorege
 
   addSection(add.task, add.date);
+  taskInput = "";
   console.log(todo);
   totalTask.innerHTML = todo.length;
   pandingTask.innerHTML = todo.length - completedTask.innerHTML;
