@@ -775,6 +775,9 @@ footer {
   .sort {
     display: none;
   }
+  #checkbox {
+    transform: scale(1.5);
+  }
 }
 
 @media (max-width: 480px) {
@@ -806,5 +809,8 @@ footer {
   .delete,
   .more {
     font-size: 14px;
+  }
+  #checkbox {
+    transform: scale(1);
   }
 }

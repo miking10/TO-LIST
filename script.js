@@ -61,6 +61,7 @@ function addSection(todoTask, todoDay, index) {
     completedTask.innerHTML = completedNum < 0 ? "0" : completedNum;
     pandingTask.innerHTML =
       todo.length - completedNum < 0 ? "0" : todo.length - completedNum;
+    completedTask.innerHTML = todo.length == 0 ? "0" : completedNum;
   });
 
   // ADD event to checkbox
