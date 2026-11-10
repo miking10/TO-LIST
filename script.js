@@ -61,7 +61,6 @@ function addSection(todoTask, todoDay, index) {
     completedTask.innerHTML = completedNum < 0 ? "0" : completedNum;
     pandingTask.innerHTML =
       todo.length - completedNum < 0 ? "0" : todo.length - completedNum;
-    completedTask.innerHTML = todo.length == 0 ? "0" : completedNum;
   });
 
   // ADD event to checkbox
@@ -74,7 +73,7 @@ function addSection(todoTask, todoDay, index) {
       completedNum -= 1;
     }
     console.log(completedNum);
-    completedTask.innerHTML = completedNum < 0 ? "0" : completedNum;
+    completedTask.innerHTML = completedNum;
     pandingTask.innerHTML =
       todo.length - completedNum < 0 ? "0" : todo.length - completedNum;
   });
@@ -93,7 +92,6 @@ addTask.addEventListener("click", () => {
   localStorage.setItem("todo", JSON.stringify(todo)); // store in localStorege
 
   addSection(add.task, add.date);
-  taskInput = "";
   console.log(todo);
   totalTask.innerHTML = todo.length;
   pandingTask.innerHTML = todo.length - completedTask.innerHTML;
@@ -101,7 +99,7 @@ addTask.addEventListener("click", () => {
 totalTask.innerHTML = todo.length;
 pandingTask.innerHTML =
   todo.length - completedNum < 0 ? "0" : todo.length - completedNum;
-completedTask.innerHTML = completedNum;
+completedTask.innerHTML = todo.length - pandingTask.innerHTML;
 
 todo.forEach((item, index) => {
   addSection(item.task, item.date, index);
